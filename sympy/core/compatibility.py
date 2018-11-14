@@ -177,6 +177,7 @@ else:
             memo.add(id_func)
         return func
 
+
 def with_metaclass(meta, *bases):
     """
     Create a base class with a metaclass.
