@@ -426,10 +426,13 @@ def limitinf(e, x):
         e = e.subs(x, p)
         x = p
     c0, e0 = mrv_leadterm(e, x)
+    print(c0, e0)
     sig = sign(e0, x)
     if sig == 1:
+        input("sig = 1")
         return S.Zero  # e0>0: lim f = 0
     elif sig == -1:  # e0<0: lim f = +-oo (the sign depends on the sign of c0)
+        input("sig = 2")
         if c0.match(I*Wild("a", exclude=[I])):
             return c0*oo
         s = sign(c0, x)
@@ -438,6 +441,7 @@ def limitinf(e, x):
             raise ValueError("Leading term should not be 0")
         return s*oo
     elif sig == 0:
+        input("sig = 3")
         return limitinf(c0, x)  # e0=0: lim f = lim c0
 
 

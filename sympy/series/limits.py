@@ -53,7 +53,6 @@ def limit(e, z, z0, dir="+"):
     "x**2" and similar, so that it's fast. For all other cases, we use the
     Gruntz algorithm (see the gruntz() function).
     """
-
     if dir == "+-":
         llim = Limit(e, z, z0, dir="-").doit(deep=False)
         rlim = Limit(e, z, z0, dir="+").doit(deep=False)
@@ -142,7 +141,6 @@ class Limit(Expr):
         e = sympify(e)
         z = sympify(z)
         z0 = sympify(z0)
-
         if z0 is S.Infinity:
             dir = "-"
         elif z0 is S.NegativeInfinity:
@@ -177,7 +175,6 @@ class Limit(Expr):
         from sympy.functions import RisingFactorial
 
         e, z, z0, dir = self.args
-
         if z0 is S.ComplexInfinity:
             raise NotImplementedError("Limits at complex "
                                     "infinity are not implemented")
